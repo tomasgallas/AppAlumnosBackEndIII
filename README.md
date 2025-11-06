@@ -34,8 +34,6 @@ La aplicación permite la gestión de diversas entidades académicas como Materi
 -   **Base de Datos:** MySQL
 -   **Servidor de Aplicaciones:** GlassFish Server
 
-## Configuración e Instalación
-
 ### Prerrequisitos
 
 -   JDK (Java Development Kit) 11 o superior.
@@ -43,39 +41,6 @@ La aplicación permite la gestión de diversas entidades académicas como Materi
 -   GlassFish Server 6 o superior.
 -   Servidor MySQL.
 -   MySQL Workbench (o cliente SQL de preferencia).
-
-### 1. Configuración de la Base de Datos
-
-1.  Crea una base de datos llamada `bdalumnos` en tu servidor MySQL.
-
-### 2. Configuración en GlassFish Server
-
-1.  Accede a la consola de administración de GlassFish (normalmente en `http://localhost:4848`).
-2.  **Crear JDBC Connection Pool:**
-    -   Ve a `Resources > JDBC > JDBC Connection Pools`.
-    -   Haz clic en `New...`.
-    -   `Pool Name`: `bdalumnosPool`
-    -   `Resource Type`: `javax.sql.DataSource`
-    -   `Database Driver Vendor`: `MySQL`
-    -   Haz clic en `Next`.
-    -   En `Additional Properties`, configura:
-        -   `User`: `tu_usuario_mysql`
-        -   `Password`: `tu_password_mysql`
-        -   `URL`: `jdbc:mysql://localhost:3306/bdalumnos?zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=UTC`
-        -   `Datasource Classname`: `com.mysql.cj.jdbc.MysqlDataSource`
-    -   Haz clic en `Finish`.
-3.  **Crear JDBC Resource:**
-    -   Ve a `Resources > JDBC > JDBC Resources`.
-    -   Haz clic en `New...`.
-    -   `JNDI Name`: `jdbc/bdalumnos`
-    -   `Pool Name`: `bdalumnosPool` (el que acabas de crear)
-    -   Haz clic en `OK`.
-
-### 3. Despliegue del Proyecto
-
-1.  Abre el proyecto en tu IDE (NetBeans, IntelliJ IDEA, Eclipse).
-2.  Realiza un `Clean and Build` del proyecto Maven.
-3.  Despliega el archivo `.war` generado (ubicado en `target/AppTomasMaven-1.0-SNAPSHOT.war`) en tu servidor GlassFish.
 
 ## Uso de la Aplicación
 
